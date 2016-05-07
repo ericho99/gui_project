@@ -2,10 +2,167 @@
 
 {% block content %}
   <div class="header font-small font-white">
-    Medieval Clocks
+    <div class="row">
+      <div class="col-md-3 col-md-offset-1 text-left">
+        {% if cid == 1 %}
+          <a href="{{ url_for('index') }}"> &lt; back</a>
+        {% else %}
+          <a href="{{ url_for('collection', cid = 1) }}"> &lt; back</a>
+        {% endif %}
+      </div>
+      <div class="col-md-4">
+        Collection {{cid}} of 12
+      </div>
+      <div class="col-md-4">
+        {% if cid == 1  or cid == 0 %}
+          <a href="{{url_for('collection', cid = 12)}}">&lt; Previous Collection</a>
+        {% else %}
+          <a href="{{url_for('collection', cid = cid - 1)}}">&lt; Previous Collection</a>
+        {% endif %}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+
+        {% if cid == 12 %}
+          <a href="{{url_for('collection', cid = 1)}}">Next Collection &gt;</a>
+        {% else %}
+          <a href="{{url_for('collection', cid = cid + 1)}}">Next Collection &gt;</a>
+        {% endif %}
+      </div>
+    </div>
   </div>
+
+  {% if cid == 1 %}
+  <div class="row">
+    <div class="col-md-6">
+      <div class="font-big">
+        Mechanical clocks (medieval)
+      </div>
+      <div class="font-medium">
+        Collection {{cid}}
+      </div>
+      <div class="picture">
+        <img class="picture-big" src="../static/img/c1.png">
+      </div>
+      <div class="font-medium more-padding more-padding-bottom">
+        <b>Related Collections</b>
+      </div>
+      <div class="col-md-6">
+        <div class="picture">
+          <a href="{{ url_for('collection', cid = 2) }}">
+            <img class="picture-medium picture-shadow" src="../static/img/c3.png">
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="picture">
+          <img class="picture-medium-wide picture-shadow" src="../static/img/c4.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="row image-row">
+        <div class="col-md-4 picture">
+          <img class="picture-small picture-small-wide picture-highlighted" src="../static/img/c1.png">
+        </div>
+        <div class="col-md-4 picture">
+          <img class="picture-small" src="../static/img/c7.png">
+        </div>
+        <div class="col-md-4 picture">
+          <img class="picture-small picture-small-wide" src="../static/img/c8.png">
+        </div>
+      </div>
+      <div class="row image-row">
+        <div class="col-md-4 picture">
+          <img class="picture-small" src="../static/img/c9.png">
+        </div>
+        <div class="col-md-4 picture">
+          <img class="picture-small" src="../static/img/c10.png">
+        </div>
+        <div class="col-md-4 picture">
+          <img class="picture-small" src="../static/img/c11.png">
+        </div>
+      </div>
+      <div class="row image-row">
+        <div class="col-md-4 picture">
+          <img class="picture-small" src="../static/img/c12.png">
+        </div>
+        <div class="col-md-4 picture">
+          <img class="picture-small picture-small-wide" src="../static/img/c13.png">
+        </div>
+        <div class="col-md-4 picture">
+          <img class="picture-small" src="../static/img/c14.png">
+        </div>
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <div class="row">
+    <div class="col-md-6">
+      <div class="font-big">
+        Astronomical clocks (medieval)
+      </div>
+      <div class="font-medium">
+        Collection {{cid}}
+      </div>
+      <div class="picture">
+        <img class="picture-big" src="../static/img/c3.png">
+      </div>
+      <div class="font-medium more-padding more-padding-bottom">
+        <b>Related Collections</b>
+      </div>
+      <div class="col-md-6">
+        <div class="picture">
+          <img class="picture-medium-wide picture-shadow" src="../static/img/c5.png">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="picture">
+          <img class="picture-medium-wide picture-shadow" src="../static/img/c6.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="row image-row">
+        <div class="col-md-4 picture">
+          <img class="picture-small picture-highlighted" src="../static/img/c3.png">
+        </div>
+        <div class="col-md-4 picture">
+          <img class="picture-small" src="../static/img/c15.png">
+        </div>
+        <div class="col-md-4 picture">
+          <img class="picture-small" src="../static/img/c16.png">
+        </div>
+      </div>
+      <div class="row image-row">
+        <div class="col-md-4 picture">
+          <img class="picture-small" src="../static/img/c17.png">
+        </div>
+        <div class="col-md-4 picture">
+          <img class="picture-small picture-small-wide" src="../static/img/c18.png">
+        </div>
+        <div class="col-md-4 picture">
+          <img class="picture-small" src="../static/img/c19.png">
+        </div>
+      </div>
+      <div class="row image-row">
+        <div class="col-md-4 picture">
+          <img class="picture-small picture-small-wide" src="../static/img/c20.png">
+        </div>
+        <div class="col-md-4 picture">
+          <img class="picture-small picture-small-wide" src="../static/img/c21.png">
+        </div>
+        <div class="col-md-4 picture">
+          <img class="picture-small picture-small-wide" src="../static/img/c22.png">
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
 
   <div class="footer">
   </div>
+
+  <script src="../static/js/main.js"></script>
 
 {% endblock %}
